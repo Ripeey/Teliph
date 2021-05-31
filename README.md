@@ -1,6 +1,6 @@
 # Teliph
 
-A php based framework for quickly setting up small telegram API based bots. It is Lightweight and just needs one single file to be included within the code.
+A php based framework for quickly setting up small telegram API based bots. It is Lightweight and just needs one single file to be included within the code for webhook use.
 
 
 ## Usage
@@ -16,7 +16,7 @@ $bot = new Teliph\Bot('12345:AFsaf-bot_token');
 # Method 1 <Filter>
 if(Filters::regex('/hi/i'))
 {
-    $result $bot->sendMessage([
+    $result = $bot->sendMessage([
         'chat_id'=> $bot->update()['message']['chat']['id'],
         'text'=> "Hi there! This is response to message."
     ]);
@@ -29,6 +29,7 @@ $bot->on('message', Filters::command('start'), function($bot, $message){
     ]);
 });
 ```
+
 ## Methods
 All **Methods** are exactly same as available in telegram documentation you must read [here](https://core.telegram.org/bots/api#available-methods).
 
@@ -39,7 +40,9 @@ Some common update types are :
 * **inline_query** - New incoming inline query.
 * **callback_query** - New incoming callback query.
 * **chat_member** - A chat member's status was updated in a chat.
+
 Theres a lot more, all update types are listed in Update object within [telegram documentation](https://core.telegram.org/bots/api#update).
+
 ## Filters
 * **command** - Checks if text is a /command. Args (command, symbol default /) 
 * **regex** - Matches a gievn pattern with the text. Args (pattern)
@@ -50,9 +53,10 @@ Theres a lot more, all update types are listed in Update object within [telegram
 * **channel** - Checks if incomming message is from a channel.
 * **chat** - Check if chat's id|username is same as given id|username. Args (id | username)
 * **user** - Check if user's id|username is same as given id|username. Args (id | username)
+* **all** - Allows any kind of update
 
 ## Extras FAQs
-This framework is recommended to be used for quick and small bot deployments inspired by userneins early version of  phgram with some extra functionalities of events and filters. 
+This framework is recommended to be used for quick and small bot deployments inspired by userneins early version of phgram with some extra functionalities of events and filters. 
 
 ## License
 [MIT](https://github.com/Ripeey/Teliph/blob/main/LICENSE)
