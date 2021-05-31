@@ -7,7 +7,7 @@ use Teliph\Filters as Filters;
 $bot = new Teliph\Bot('12345:AFsaf-bot_token');
 
 # Method 1
-if(Filters::regex('/hi/i'))
+if(Filters::regex('/hey/i'))
 {
     $bot->sendMessage([
         'chat_id'=> $bot->update()['message']['chat']['id'],
